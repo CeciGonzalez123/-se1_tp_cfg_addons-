@@ -1,0 +1,49 @@
+<odoo>
+    <data>
+        <!-- Vista de árbol para listar las restricciones de compra -->
+        <record id="view_purchase_restriction_tree" model="ir.ui.view">
+            <field name="name">purchase.restriction.tree</field>
+            <field name="model">purchase.restriction</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="product_id"/>
+                    <field name="max_qty"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista de formulario para crear/editar restricciones de compra -->
+        <record id="view_purchase_restriction_form" model="ir.ui.view">
+            <field name="name">purchase.restriction.form</field>
+            <field name="model">purchase.restriction</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="product_id"/>
+                            <field name="max_qty"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Acción para abrir las restricciones de compra -->
+        <record id="action_purchase_restriction" model="ir.actions.act_window">
+            <field name="name">Restricciones de Compra</field>
+            <field name="res_model">purchase.restriction</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Crea restricciones de compra para los productos.
+                </p>
+            </field>
+        </record>
+
+        <!-- Menú para acceder a las restricciones de compra -->
+        <menuitem id="menu_purchase_restriction" name="Restricciones de Compra"
+                  parent="purchase.menu_purchase_root" action="action_purchase_restriction"/>
+    </data>
+</odoo>

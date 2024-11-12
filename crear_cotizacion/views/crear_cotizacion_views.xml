@@ -1,0 +1,50 @@
+<odoo>
+    <data>
+        <!-- Vista de árbol para listar las cotizaciones -->
+        <record id="view_crear_cotizacion_tree" model="ir.ui.view">
+            <field name="name">crear.cotizacion.tree</field>
+            <field name="model">crear.cotizacion</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="cliente_id"/>
+                    <field name="product_id"/>
+                    <field name="cantidad"/>
+                    <field name="precio_unitario"/>
+                    <field name="total"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista de formulario para crear/editar cotizaciones -->
+        <record id="view_crear_cotizacion_form" model="ir.ui.view">
+            <field name="name">crear.cotizacion.form</field>
+            <field name="model">crear.cotizacion</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="cliente_id"/>
+                            <field name="product_id"/>
+                            <field name="cantidad"/>
+                            <field name="precio_unitario"/>
+                            <field name="total" readonly="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Acción para abrir las cotizaciones -->
+        <record id="action_crear_cotizacion" model="ir.actions.act_window">
+            <field name="name">Crear Cotización</field>
+            <field name="res_model">crear.cotizacion</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menú para acceder a las cotizaciones -->
+        <menuitem id="menu_crear_cotizacion_root" name="Crear Cotización"
+                  parent="sale.sale_order_menu" action="action_crear_cotizacion"/>
+    </data>
+</odoo>

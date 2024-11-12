@@ -1,0 +1,29 @@
+<odoo>
+    <data>
+        <!-- Vista de formulario para editar cotizaciones -->
+        <record id="view_editar_cotizacion_form" model="ir.ui.view">
+            <field name="name">editar.cotizacion.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet/group" position="inside">
+                    <group>
+                        <field name="descuento_especial"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Acción para abrir las cotizaciones para edición -->
+        <record id="action_editar_cotizacion" model="ir.actions.act_window">
+            <field name="name">Editar Cotización</field>
+            <field name="res_model">sale.order</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_editar_cotizacion_form"/>
+        </record>
+
+        <!-- Menú para acceder a la edición de cotizaciones -->
+        <menuitem id="menu_editar_cotizacion_root" name="Editar Cotización"
+                  parent="sale.sale_order_menu" action="action_editar_cotizacion"/>
+    </data>
+</odoo>

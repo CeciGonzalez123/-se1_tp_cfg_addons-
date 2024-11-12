@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_form_process_order" model="ir.ui.view">
+        <field name="name">process_order_form</field>
+        <field name="model">process.order</field>
+        <field name="arch" type="xml">
+            <form string="Process Order">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="order_date"/>
+                        <field name="customer_id"/>
+                        <field name="product_id"/>
+                        <field name="state" readonly="1"/>
+                    </group>
+                    <footer>
+                        <button string="Confirm" type="object" name="action_confirm" class="oe_highlight"/>
+                        <button string="Check Stock and Deliver" type="object" name="action_check_stock" class="oe_highlight"/>
+                        <button string="Cancel" type="object" name="action_cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tree_process_order" model="ir.ui.view">
+        <field name="name">process_order_tree</field>
+        <field name="model">process.order</field>
+        <field name="arch" type="xml">
+            <tree string="Process Order">
+                <field name="name"/>
+                <field name="order_date"/>
+                <field name="customer_id"/>
+                <field name="product_id"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <menuitem id="process_order_menu" name="Process Order" sequence="1"/>
+    <menuitem id="submenu_process_order" name="Manage Orders" parent="process_order_menu" action="action_process_order"/>
+
+    <record id="action_process_order" model="ir.actions.act_window">
+        <field name="name">process_orders</field>
+        <field name="res_model">process.order</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

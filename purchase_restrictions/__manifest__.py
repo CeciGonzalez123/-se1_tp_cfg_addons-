@@ -13,11 +13,11 @@
     """,
     'category': 'Purchases',
     'author': 'Federico',
-    'website': 'http://www.tusitio.com',
+    'license': 'LGPL-3',
     'depends': ['purchase'],
     'data': [
-        'security/ir.model.access.csv',
-        'views/purchase_restriction_views.xml',
+        'security/ir.model.access.csv', 
+        'views/purchase_restriction_views.xml'
     ],
     'installable': True,
     'application': False,

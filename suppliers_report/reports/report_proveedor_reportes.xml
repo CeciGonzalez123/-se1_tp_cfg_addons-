@@ -1,0 +1,31 @@
+<odoo>
+    <template id="reporte_proveedor_pdf">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <div class="page">
+                    <h2>Reporte de Proveedor</h2>
+                    <h3>Nombre del Proveedor: <t t-esc="o.proveedor_id.name"/></h3>
+                    <h3>Monto Total: <t t-esc="o.total_compras"/></h3>
+                    <br/>
+                    <h4>Compras del Proveedor</h4>
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Referencia de Compra</th>
+                                <th>Fecha de Compra</th>
+                                <th>Monto</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="o.compras_ids" t-as="compra">
+                                <td><t t-esc="compra.compra_referencia"/></td>
+                                <td><t t-esc="compra.fecha_compra"/></td>
+                                <td><t t-esc="compra.monto"/></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

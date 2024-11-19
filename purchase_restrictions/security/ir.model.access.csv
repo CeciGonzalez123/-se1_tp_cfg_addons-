@@ -1,2 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_purchase_restriction,access_purchase_restriction,model_purchase_restriction,base.group_user,1,1,1,1
+access_purchase_restriction_user,purchase.restriction user,model_purchase_restriction,base.group_user,1,1,1,1
+access_purchase_restriction_manager,purchase.restriction manager,model_purchase_restriction,base.group_system,1,1,1,1

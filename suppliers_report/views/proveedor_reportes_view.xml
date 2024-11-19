@@ -1,0 +1,59 @@
+<odoo>
+    <record id="action_proveedor_reportes" model="ir.actions.act_window">
+        <field name="name">Reportes de Proveedores</field>
+        <field name="res_model">proveedor.reportes</field>
+        <field name="view_mode">tree,form</field>
+        <field name="target">current</field>
+    </record>
+
+    <record id="view_proveedor_reportes_tree" model="ir.ui.view">
+        <field name="name">proveedor.reportes.tree</field>
+        <field name="model">proveedor.reportes</field>
+        <field name="arch" type="xml">
+            <tree string="Reportes de Proveedores">
+                <field name="proveedor_id"/>
+                <field name="total_compras"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_proveedor_reportes_form" model="ir.ui.view">
+        <field name="name">proveedor.reportes.form</field>
+        <field name="model">proveedor.reportes</field>
+        <field name="arch" type="xml">
+            <form string="Reportes de Proveedores">
+                <sheet>
+                    <group>
+                        <field name="proveedor_id" string="Proveedor" readonly="1"/>
+                        <field name="total_compras" string="Monto Total" readonly="1"/>
+                    </group>
+                    <notebook>
+                        <page string="Compras del Proveedor">
+                            <field name="compras_ids" nolabel="1">
+                                <tree string="Compras del Proveedor" create="false" delete="false" edit="false">
+                                    <field name="compra_referencia"/>
+                                    <field name="fecha_compra"/>
+                                    <field name="monto"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_proveedor_compras_tree" model="ir.ui.view">
+        <field name="name">proveedor.compras.tree</field>
+        <field name="model">proveedor.compras</field>
+        <field name="arch" type="xml">
+            <tree string="Compras del Proveedor">
+                <field name="compra_referencia"/>
+                <field name="fecha_compra"/>
+                <field name="monto"/>
+            </tree>
+        </field>
+    </record>
+
+    <menuitem id="menu_proveedor_reportes" name="Reportes de Proveedores" parent="purchase.menu_purchase_root" action="action_proveedor_reportes"/>
+</odoo>

@@ -8,7 +8,10 @@
                 <tree>
                     <field name="name"/>
                     <field name="product_id"/>
+                    <field name="min_qty"/>
                     <field name="max_qty"/>
+                    <field name="min_total"/>
+                    <field name="max_total"/>
                 </tree>
             </field>
         </record>
@@ -23,7 +26,10 @@
                         <group>
                             <field name="name"/>
                             <field name="product_id"/>
+                            <field name="min_qty"/>
                             <field name="max_qty"/>
+                            <field name="min_total"/>
+                            <field name="max_total"/>
                         </group>
                     </sheet>
                 </form>
@@ -45,5 +51,18 @@
         <!-- Menú para acceder a las restricciones de compra -->
         <menuitem id="menu_purchase_restriction" name="Restricciones de Compra"
                   parent="purchase.menu_purchase_root" action="action_purchase_restriction"/>
+
+        <!-- Vista de Formulario de Orden de Compra -->
+        <record id="view_purchase_order_form_inherit" model="ir.ui.view">
+            <field name="name">purchase.order.form.inherit</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header" position="inside">
+                    <button name="button_unlock" string="Desbloquear Orden de Compra" type="object" class="oe_highlight"
+                            invisible="state != 'bloqueado'"/>
+                </xpath>
+            </field>
+        </record>
     </data>
 </odoo>

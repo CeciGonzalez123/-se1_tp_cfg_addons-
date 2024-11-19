@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_proveedor_reportes,access.proveedor.reportes,model_proveedor_reportes,base.group_user,1,0,0,0
+access_proveedor_compras,access.proveedor.compras,model_proveedor_compras,base.group_user,1,0,0,0

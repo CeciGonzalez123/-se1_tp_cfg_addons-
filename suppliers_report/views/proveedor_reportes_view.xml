@@ -1,3 +1,4 @@
+<!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
 <odoo>
     <record id="action_proveedor_reportes" model="ir.actions.act_window">
         <field name="name">Reportes de Proveedores</field>
@@ -10,9 +11,9 @@
         <field name="name">proveedor.reportes.tree</field>
         <field name="model">proveedor.reportes</field>
         <field name="arch" type="xml">
-            <tree string="Reportes de Proveedores">
-                <field name="proveedor_id"/>
-                <field name="total_compras"/>
+            <tree string="Reportes de Proveedores">     <!--Seccion de reporte de proveedor-->
+                <field name="proveedor_id"/>            <!--Campo para el id del proveedor-->
+                <field name="total_compras"/>           <!--Campo para el totalizador-->
             </tree>
         </field>
     </record>
@@ -24,16 +25,16 @@
             <form string="Reportes de Proveedores">
                 <sheet>
                     <group>
-                        <field name="proveedor_id" string="Proveedor" readonly="1"/>
-                        <field name="total_compras" string="Monto Total" readonly="1"/>
+                        <field name="proveedor_id" string="Proveedor" readonly="1"/>        <!--Campo del id del proveedor-->
+                        <field name="total_compras" string="Monto Total" readonly="1"/>     <!--Campo del totalizador-->
                     </group>
                     <notebook>
-                        <page string="Compras del Proveedor">
+                        <page string="Compras del Proveedor">   <!--Pagina divisoria-->
                             <field name="compras_ids" nolabel="1">
-                                <tree string="Compras del Proveedor" create="false" delete="false" edit="false">
-                                    <field name="compra_referencia"/>
-                                    <field name="fecha_compra"/>
-                                    <field name="monto"/>
+                                <tree string="Compras del Proveedor" create="false" delete="false" edit="false">    <!--Control de deshabilitacion de creacion, edicion y destruccion-->
+                                    <field name="compra_referencia"/>   <!--Campo para la referencia de la compra-->
+                                    <field name="fecha_compra"/>        <!--Campo para la fecha de la compra-->
+                                    <field name="monto"/>               <!--Campo del monto de la compra-->
                                 </tree>
                             </field>
                         </page>
@@ -47,13 +48,14 @@
         <field name="name">proveedor.compras.tree</field>
         <field name="model">proveedor.compras</field>
         <field name="arch" type="xml">
-            <tree string="Compras del Proveedor">
-                <field name="compra_referencia"/>
-                <field name="fecha_compra"/>
-                <field name="monto"/>
+            <tree string="Compras del Proveedor">   <!--Seccion de las compras del proveedor-->
+                <field name="compra_referencia"/>   <!--Campo de la referencia de la compra-->
+                <field name="fecha_compra"/>        <!--Campo de la fecha de la compra-->
+                <field name="monto"/>               <!--Campo del monto de la compra-->
             </tree>
         </field>
     </record>
 
     <menuitem id="menu_proveedor_reportes" name="Reportes de Proveedores" parent="purchase.menu_purchase_root" action="action_proveedor_reportes"/>
 </odoo>
+<!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->

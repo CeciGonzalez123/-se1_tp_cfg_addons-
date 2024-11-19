@@ -1,14 +1,15 @@
+########################################################################################
 from odoo import models, fields, api
-
+############## Clase para el Reporte de Proveedor ##########################################################################
 class ProveedorReportes(models.Model):
     _name = 'proveedor.reportes'
     _description = 'Reportes de Proveedor'
     _auto = False
 
-    proveedor_id = fields.Many2one('res.partner', string='Proveedor')
-    total_compras = fields.Float(string='Total de Compras')
-    compras_ids = fields.One2many('proveedor.compras', 'proveedor_id', string='Compras', compute='_compute_compras_ids')
-
+    proveedor_id = fields.Many2one('res.partner', string='Proveedor')   #Campo para el id del proveedor
+    total_compras = fields.Float(string='Total de Compras')             #Campo para el totalizador
+    compras_ids = fields.One2many('proveedor.compras', 'proveedor_id', string='Compras', compute='_compute_compras_ids') #Campo para el id de las compras y sus relaciones
+############# Definicion de la tabla de Reportes de Proveedor ###########################################################################
     @api.model
     def init(self):
         self.env.cr.execute("""
@@ -36,17 +37,17 @@ class ProveedorReportes(models.Model):
                 ('proveedor_id', '=', record.proveedor_id.id)
             ])
             record.compras_ids = compras
-
+############## Clase para las Compras del Proveedor ##########################################################################
 class ProveedorCompras(models.Model):
     _name = 'proveedor.compras'
     _description = 'Compras por Proveedor'
     _auto = False
 
-    proveedor_id = fields.Many2one('res.partner', string='Proveedor')
-    compra_referencia = fields.Char(string='Referencia de Compra')
-    fecha_compra = fields.Date(string='Fecha de Compra')
-    monto = fields.Float(string='Monto')
-
+    proveedor_id = fields.Many2one('res.partner', string='Proveedor')   #Campo del id del proveedor
+    compra_referencia = fields.Char(string='Referencia de Compra')      #Campo de la referencia de la compra
+    fecha_compra = fields.Date(string='Fecha de Compra')                #Campo de la fecha de la compra
+    monto = fields.Float(string='Monto')                                #Campo del monto de la compra
+############### Definicion de la tabla de Compras del Proveedor #########################################################################
     @api.model
     def init(self):
         self.env.cr.execute("""
@@ -66,3 +67,4 @@ class ProveedorCompras(models.Model):
                     po.state NOT IN ('cancelado', 'bloqueado')
             )
         """)
+########################################################################################

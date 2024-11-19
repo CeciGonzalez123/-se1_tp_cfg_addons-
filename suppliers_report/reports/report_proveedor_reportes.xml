@@ -1,19 +1,20 @@
+<!--////////////////////////////////////////// Vistas para poder generar el PDF ///////////////////////////////////////////////////////////////////-->
 <odoo>
     <template id="reporte_proveedor_pdf">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="o">
                 <div class="page">
-                    <h2>Reporte de Proveedor</h2>
-                    <h3>Nombre del Proveedor: <t t-esc="o.proveedor_id.name"/></h3>
-                    <h3>Monto Total: <t t-esc="o.total_compras"/></h3>
+                    <h2>Reporte de Proveedor</h2>                                           <!--Seccion del titulo "Reporte de Proveedor"-->
+                    <h3>Nombre del Proveedor: <t t-esc="o.proveedor_id.name"/></h3>         <!--Seccion para el nombre del proveedor-->
+                    <h3>Monto Total: <t t-esc="o.total_compras"/></h3>                      <!--Seccion para el totalizador-->
                     <br/>
-                    <h4>Compras del Proveedor</h4>
+                    <h4>Compras del Proveedor</h4>              <!--Seccion para indicar las compras del proveedor-->
                     <table class="table table-condensed">
                         <thead>
                             <tr>
-                                <th>Referencia de Compra</th>
-                                <th>Fecha de Compra</th>
-                                <th>Monto</th>
+                                <th>Referencia de Compra</th>   <!--Seccion de la refencia de la compra-->
+                                <th>Fecha de Compra</th>        <!--Seccion de la fecha de la compra-->
+                                <th>Monto</th>                  <!--Seccion del monto de la compra-->
                             </tr>
                         </thead>
                         <tbody>
@@ -29,3 +30,4 @@
         </t>
     </template>
 </odoo>
+<!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->

@@ -1,3 +1,4 @@
+<!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
 <odoo>
     <data>
         <!-- Vista de árbol para listar las restricciones de compra -->
@@ -6,12 +7,12 @@
             <field name="model">purchase.restriction</field>
             <field name="arch" type="xml">
                 <tree>
-                    <field name="name"/>
-                    <field name="product_id"/>
-                    <field name="min_qty"/>
-                    <field name="max_qty"/>
-                    <field name="min_total"/>
-                    <field name="max_total"/>
+                    <field name="name"/>            <!--Campo ded nombre de la restriccion -->
+                    <field name="product_id"/>      <!--Campo de el id del producto-->
+                    <field name="min_qty"/>         <!--Campo de la cantidad minima-->
+                    <field name="max_qty"/>         <!--Campo de la cantidad maxima-->
+                    <field name="min_total"/>       <!--Campo del totalizador minimo-->
+                    <field name="max_total"/>       <!--Campo del totlizador maximo-->
                 </tree>
             </field>
         </record>
@@ -24,12 +25,12 @@
                 <form>
                     <sheet>
                         <group>
-                            <field name="name"/>
-                            <field name="product_id"/>
-                            <field name="min_qty"/>
-                            <field name="max_qty"/>
-                            <field name="min_total"/>
-                            <field name="max_total"/>
+                            <field name="name"/>            <!--Campo del nombre de la restriccion-->
+                            <field name="product_id"/>      <!--Campo de el id del producto-->
+                            <field name="min_qty"/>         <!--Campo de la cantidad minima-->
+                            <field name="max_qty"/>         <!--Campo de la cantidad maxima-->
+                            <field name="min_total"/>       <!--Campo del totalizador minimo-->
+                            <field name="max_total"/>       <!--Campo del totlizador maximo-->
                         </group>
                     </sheet>
                 </form>
@@ -66,3 +67,4 @@
         </record>
     </data>
 </odoo>
+<!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->

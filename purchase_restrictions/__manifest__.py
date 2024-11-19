@@ -3,7 +3,7 @@
 
 # Copyright (c) 2011 CCI Connect asbl (http://www.cciconnect.be) All Rights Reserved.
 #                       Philmer <philmer@cciconnect.be>
-
+########################################################################################
 {
     'name': 'Restricciones de Compra',
     'version': '1.0',
@@ -22,3 +22,4 @@
     'installable': True,
     'application': False,
 }
+########################################################################################

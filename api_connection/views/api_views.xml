@@ -1,0 +1,51 @@
+<!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+<odoo>
+    <!-- Vista Tree -->
+    <record id="view_purchase_order_tree_api_readonly" model="ir.ui.view">
+        <field name="name">purchase.order.tree.api.readonly</field>
+        <field name="model">purchase.order</field>
+        <field name="arch" type="xml">
+            <tree create="false" delete="true" edit="true"> <!--Establecemos que puedan ser eliminado y editados pero no creados-->
+                <field name="name"/>                <!-- Campo para ver el id o referencia de la compra  -->
+                <field name="partner_id"/>          <!-- Campo para ver el id del proveedor -->
+                <field name="date_order"/>          <!-- Campo para ver la fecha de la orden -->
+                <field name="api_created"/>         <!-- Campo para verificar si es creado por API -->
+                <field name="state"/>               <!-- Campo estado para verificar si está bloqueado -->
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista Form -->
+    <record id="view_purchase_order_form_api_readonly" model="ir.ui.view">
+        <field name="name">purchase.order.form.api.readonly</field>
+        <field name="model">purchase.order</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="company_id"/>      <!-- Campo para ver el id de la compania -->
+                        <field name="name"/>            <!-- Campo para ver el id o referencia de la compra  -->
+                        <field name="partner_id"/>      <!-- Campo para ver el id del proveedor -->
+                        <field name="date_order"/>      <!-- Campo para ver la fecha de la orden -->
+                        <field name="api_created"/>     <!-- Campo para verificar si es creado por API -->
+                        <field name="state"/>           <!-- Campo estado para verificar si está bloqueado -->
+                        <field name="order_line"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Acción -->
+    <record id="action_purchase_order_api_readonly" model="ir.actions.act_window">
+        <field name="name">Órdenes de Compra API</field>
+        <field name="res_model">purchase.order</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_ids" eval="[(5, 0, 0), (0, 0, {'view_mode': 'tree', 'view_id': ref('view_purchase_order_tree_api_readonly')}), (0, 0, {'view_mode': 'form', 'view_id': ref('view_purchase_order_form_api_readonly')})]"/>
+        <field name="domain">[('api_created', '=', True), ('state', '!=', 'bloqueado')]</field>
+    </record>
+
+    <!-- Menú -->
+    <menuitem id="menu_purchase_order_api_readonly_root" name="Órdenes de Compra API" parent="purchase.menu_purchase_root" sequence="10" action="action_purchase_order_api_readonly"/>
+</odoo>
+<!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->

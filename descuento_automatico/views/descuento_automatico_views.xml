@@ -1,0 +1,41 @@
+<odoo>
+    <record id="view_descuento_automatico_form" model="ir.ui.view">
+        <field name="name">descuento.automatico.form</field>
+        <field name="model">descuento.automatico</field>
+        <field name="arch" type="xml">
+            <form string="Descuento Automático">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="cantidad_productos"/>
+                        <field name="monto_total"/>
+                        <field name="descuento_porcentaje"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_descuento_automatico_tree" model="ir.ui.view">
+        <field name="name">descuento.automatico.tree</field>
+        <field name="model">descuento.automatico</field>
+        <field name="arch" type="xml">
+            <tree string="Descuento Automático">
+                <field name="name"/>
+                <field name="cantidad_productos"/>
+                <field name="monto_total"/>
+                <field name="descuento_porcentaje"/>
+            </tree>
+        </field>
+    </record>
+
+    <menuitem id="menu_descuento_automatico" name="Descuentos Automáticos" parent="sale.sale_menu_root" sequence="20"/>
+    <menuitem id="submenu_descuento_automatico" name="Configuración de Descuentos" parent="menu_descuento_automatico" action="descuento_automatico_action" sequence="10"/>
+
+    <record id="descuento_automatico_action" model="ir.actions.act_window">
+        <field name="name">Descuentos Automáticos</field>
+        <field name="res_model">descuento.automatico</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
+

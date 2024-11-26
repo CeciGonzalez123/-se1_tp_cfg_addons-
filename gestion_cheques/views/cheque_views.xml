@@ -1,0 +1,37 @@
+<odoo>
+    <record id="view_cheque_form" model="ir.ui.view">
+        <field name="name">gestion.cheque.form</field>
+        <field name="model">gestion.cheque</field>
+        <field name="arch" type="xml">
+            <form string="Cheque">
+                <sheet>
+                    <group>
+                        <field name="numero_cheque"/>
+                        <field name="banco"/>
+                        <field name="monto"/>
+                        <field name="moneda"/>
+                        <field name="fecha_emision"/>
+                        <field name="fecha_vencimiento"/>
+                        <field name="tipo_cheque"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_cheque_tree" model="ir.ui.view">
+        <field name="name">gestion.cheque.tree</field>
+        <field name="model">gestion.cheque</field>
+        <field name="arch" type="xml">
+            <tree string="Cheque">
+                <field name="numero_cheque"/>
+                <field name="banco"/>
+                <field name="monto"/>
+                <field name="moneda"/>
+                <field name="fecha_emision"/>
+                <field name="fecha_vencimiento"/>
+                <field name="tipo_cheque"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

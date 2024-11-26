@@ -1,0 +1,48 @@
+<odoo>
+    <record id="view_timbrado_form" model="ir.ui.view">
+        <field name="name">timbrado.form</field>
+        <field name="model">gestion.timbrado</field>
+        <field name="arch" type="xml">
+            <form string="Timbrado">
+                <group>
+                    <field name="numero_timbrado"/>
+                    <field name="fecha_inicio"/>
+                    <field name="fecha_fin"/>
+                    <field name="nro_establecimiento"/>
+                    <field name="nro_expedicion"/>
+                    <field name="nro_factura"/>
+                    <field name="active"/>
+                    <field name="company_id" readonly="1"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_timbrado_tree" model="ir.ui.view">
+        <field name="name">timbrado.tree</field>
+        <field name="model">gestion.timbrado</field>
+        <field name="arch" type="xml">
+            <tree string="Timbrados">
+                <field name="numero_timbrado"/>
+                <field name="fecha_inicio"/>
+                <field name="fecha_fin"/>
+                <field name="nro_establecimiento"/>
+                <field name="nro_expedicion"/>
+                <field name="active"/>
+                <field name="company_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Definición de la acción -->
+    <record id="action_timbrado" model="ir.actions.act_window">
+        <field name="name">Timbrados</field>
+        <field name="res_model">gestion.timbrado</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_timbrado_tree"/>
+    </record>
+
+    <menuitem id="menu_gestion_timbrados" name="Gestión de Timbrados" parent="account.menu_finance" sequence="10"/>
+    <menuitem id="submenu_timbrados" name="Timbrados" parent="menu_gestion_timbrados" action="action_timbrado"/>
+</odoo>
+

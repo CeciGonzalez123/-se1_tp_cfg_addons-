@@ -1,0 +1,9 @@
+<odoo>
+    <record id="account_payment_method_cheque" model="account.payment.method">
+        <field name="name">Cheque</field>
+        <field name="code">cheque</field>
+        <field name="payment_type">outbound</field>
+        <field name="active">True</field>
+    </record>
+</odoo>
+

@@ -1,0 +1,19 @@
+<odoo>
+    <record id="view_order_form" model="ir.ui.view">
+        <field name="name">sale.order.form</field>
+        <field name="model">sale.order</field>
+        <field name="arch" type="xml">
+            <form string="Sales Order">
+                <sheet>
+                    <group>
+                        <field name="partner_id" required="1"/>
+                        <field name="company_id" required="1"/>
+                        <field name="report_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
+
+

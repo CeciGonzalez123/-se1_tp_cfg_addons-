@@ -1,0 +1,36 @@
+<odoo>
+    <template id="sales_report_pdf_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <h2>Reporte de Ventas - <t t-esc="doc.name"/></h2>
+                <p>Fecha de Inicio: <t t-esc="doc.start_date"/></p>
+                <p>Fecha de Fin: <t t-esc="doc.end_date"/></p>
+                <p>Equipo de Ventas: <t t-esc="doc.sales_team_id.name"/></p>
+                <p>Vendedor: <t t-esc="doc.user_id.name"/></p>
+                <p>Total de Ventas: <t t-esc="doc.total_sales"/></p>
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th>Orden</th>
+                            <th>Cliente</th>
+                            <th>Fecha</th>
+                            <th>Monto</th>
+                            <th>Facturado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="doc.sale_order_ids" t-as="order">
+                            <tr>
+                                <td><t t-esc="order.name"/></td>
+                                <td><t t-esc="order.partner_id.name"/></td>
+                                <td><t t-esc="order.date_order"/></td>
+                                <td><t t-esc="order.amount_total"/></td>
+                                <td><t t-esc="order.invoice_status"/></td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </t>
+        </t>
+    </template>
+</odoo>

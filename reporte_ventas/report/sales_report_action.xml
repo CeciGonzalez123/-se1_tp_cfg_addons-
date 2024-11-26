@@ -1,0 +1,11 @@
+<odoo>
+    <report
+        id="action_report_sales"
+        model="reporte.ventas"
+        string="Reporte de Ventas"
+        report_type="qweb-pdf"
+        name="reporte_ventas.sales_report_pdf_template"
+        file="reporte_ventas.sales_report_pdf_template"
+        print_report_name="'Reporte de Ventas - %s' % (object.name)"
+    />
+</odoo>

@@ -1,0 +1,10 @@
+<odoo>
+    <record id="cheque_action" model="ir.actions.act_window">
+        <field name="name">Cheques</field>
+        <field name="res_model">gestion.cheque</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="cheque_management_menu" name="Gestión de Cheques" parent="account.menu_finance" sequence="10"/>
+    <menuitem id="cheque_menu_item" name="Cheques" parent="cheque_management_menu" action="cheque_action" sequence="10"/>
+</odoo>

@@ -1,0 +1,37 @@
+<odoo>
+    <record id="view_report_wizard_form" model="ir.ui.view">
+        <field name="name">report.wizard.form</field>
+        <field name="model">report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Generar Reporte">
+                <group>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="company_id" readonly="1"/>
+                </group>
+                <footer>
+                    <button name="generate_purchase_report" string="Generar Reporte de Compras" type="object" class="btn-primary"/>
+                    <button name="generate_sales_report" string="Generar Reporte de Ventas" type="object" class="btn-primary"/>
+                    <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_report_wizard" model="ir.actions.act_window">
+        <field name="name">Generar Reporte</field>
+        <field name="res_model">report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_report_wizard_form"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_reporting_root" name="Reportes" sequence="20" parent="account.menu_finance"/>
+
+    <menuitem id="menu_report_purchase" name="Reporte de Compras" parent="menu_reporting_root" action="action_report_wizard"/>
+    <menuitem id="menu_report_sales" name="Reporte de Ventas" parent="menu_reporting_root" action="action_report_wizard"/>
+</odoo>
+
+
+
+

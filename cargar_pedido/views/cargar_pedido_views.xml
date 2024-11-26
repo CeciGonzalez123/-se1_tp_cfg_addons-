@@ -1,0 +1,46 @@
+<odoo>
+    <data>
+        <!-- Vista de árbol para listar los pedidos -->
+        <record id="view_cargar_pedido_tree" model="ir.ui.view">
+            <field name="name">cargar.pedido.tree</field>
+            <field name="model">cargar.pedido</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="product_id"/>
+                    <field name="order_qty"/>
+                    <field name="sale_order_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista de formulario para crear/editar pedidos -->
+        <record id="view_cargar_pedido_form" model="ir.ui.view">
+            <field name="name">cargar.pedido.form</field>
+            <field name="model">cargar.pedido</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="product_id"/>
+                            <field name="order_qty"/>
+                            <field name="sale_order_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Acción para abrir los pedidos -->
+        <record id="action_cargar_pedido" model="ir.actions.act_window">
+            <field name="name">Cargar Pedido</field>
+            <field name="res_model">cargar.pedido</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menú para acceder a los pedidos -->
+        <menuitem id="menu_cargar_pedido_root" name="Cargar Pedido"
+                  parent="sale.sale_order_menu" action="action_cargar_pedido"/>
+    </data>
+</odoo>

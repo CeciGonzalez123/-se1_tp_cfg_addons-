@@ -1,0 +1,47 @@
+<odoo>
+    <template id="report_inventory_document">
+        <t t-call="web.external_layout">
+            <div class="page">
+                <h2>Reporte de Inventario</h2>
+                <p>Fecha: <t t-esc="fields.Date.context_today()"/></p>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Stock</th>
+                            <th>Lote</th>
+                            <th>Fecha de Caducidad</th>
+                            <th>Ubicación</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr t-foreach="docs" t-as="quant">
+                            <td><t t-esc="quant.product_id.name"/></td>
+                            <td>
+                                <t t-if="quant.lot_id">
+                                    <t t-esc="quant.quantity"/> (Lote: <t t-esc="quant.lot_id.name"/>)
+                                </t>
+                                <t t-else="">
+                                    <t t-esc="quant.quantity"/>
+                                </t>
+                            </td>
+                            <td><t t-esc="quant.lot_id and quant.lot_id.expiration_date or 'N/A'"/></td>
+                            <td><t t-esc="quant.location_id.name"/></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+
+    <report 
+        id="report_inventory_pdf"
+        model="stock.quant"
+        string="Reporte de Inventario"
+        report_type="qweb-pdf"
+        name="inventory_report_pdf.report_inventory_document"
+        file="inventory_report_pdf.report_inventory_document"
+    />
+</odoo>
+
+    

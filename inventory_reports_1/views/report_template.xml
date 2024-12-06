@@ -1,0 +1,35 @@
+<odoo>
+    <template id="report_inventory_pdf_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <div class="page">
+                    <h2>Reporte de Inventario</h2>
+                    <p><strong>Fecha del Reporte:</strong> <t t-esc="doc.report_date"/></p>
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Ubicación</th>
+                                <th>Cantidad</th>
+                                <th>Lote</th>
+                                <th>Fecha de Caducidad</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="doc.report_data" t-as="line">
+                                <td><t t-esc="line['product_name']"/></td>
+                                <td><t t-esc="line['location']"/></td>
+                                <td><t t-esc="line['quantity']"/></td>
+                                <td><t t-esc="line['lot_name']"/></td>
+                                <td><t t-esc="line['expiration_date']"/></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>
+
+
+

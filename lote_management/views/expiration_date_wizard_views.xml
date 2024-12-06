@@ -1,0 +1,17 @@
+<odoo>
+    <record id="view_expiration_date_wizard_form" model="ir.ui.view">
+        <field name="name">expiration.date.wizard.form</field>
+        <field name="model">expiration.date.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Change Expiration Date">
+                <group>
+                    <field name="expiration_date"/>
+                </group>
+                <footer>
+                    <button string="Apply" type="object" name="apply_new_expiration_date" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

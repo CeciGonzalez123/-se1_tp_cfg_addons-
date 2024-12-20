@@ -1,0 +1,54 @@
+<odoo>
+    <data>
+        <!-- Menú padre en Inventario -->
+        <menuitem id="stock.menu_stock_root" name="Inventario" sequence="1"/>
+
+        <!-- Submenú de Reportes -->
+        <menuitem id="stock.menu_stock_report"
+                  name="Reportes"
+                  parent="stock.menu_stock_root"
+                  sequence="10"/>
+
+        <!-- Acción para el reporte de inventario -->
+        <record id="action_inventory_report" model="ir.actions.act_window">
+            <field name="name">Reporte de Inventario</field>
+            <field name="res_model">stock.quant</field>
+            <field name="view_mode">pivot,tree</field>
+        </record>
+
+        <!-- Submenú para el reporte -->
+        <menuitem id="menu_inventory_report"
+                  name="Reporte de Inventario"
+                  parent="stock.menu_stock_report"
+                  action="action_inventory_report"
+                  sequence="20"/>
+    
+
+
+
+
+
+    <record id="view_inventory_report_pivot" model="ir.ui.view">
+        <field name="name">Reporte de Inventario - Pivot</field>
+        <field name="model">inventory.report.pivot</field>
+        <field name="arch" type="xml">
+            <pivot string="Reporte de Inventario">
+                <!-- Fila: Producto -->
+                <field name="product_id" type="row"/>
+                <!-- Fila: Lotes -->
+                <field name="lot_id" type="row"/>
+                <!-- Columna: Ubicación -->
+                <field name="location_id" type="col"/>
+                <!-- Medida: Cantidad en Stock -->
+                <field name="stock_quantity" type="measure"/>
+                <!-- Fila: Fecha de Vencimiento -->
+                <field name="expiration_date" type="row"/>
+            </pivot>
+        </field>
+    </record>
+
+    
+    </data>
+
+
+</odoo>
